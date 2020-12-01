@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<audio id="myAudio_X1">
+		<source src="X1.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X2">
+		<source src="X2.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X3">
+		<source src="X3.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X4">
+		<source src="X4.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X5">
+		<source src="X5.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X6">
+		<source src="X6.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X7">
+		<source src="X7.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X8">
+		<source src="X8.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_X9">
+		<source src="X9.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O1">
+		<source src="O1.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O2">
+		<source src="O2.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O3">
+		<source src="O3.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O4">
+		<source src="O4.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O5">
+		<source src="O5.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O6">
+		<source src="O6.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O7">
+		<source src="O7.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O8">
+		<source src="O8.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_O9">
+		<source src="O9.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_XWin">
+	  <source src="XWins.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_OWin">
+	   <source src="OWins.m4a" type="audio/mpeg">
+	</audio>
+	
+	<audio id="myAudio_Draw">
+	   <source src="Draw.m4a" type="audio/mpeg">
+	</audio>
+	    
+	<!--
+	<audio id="myAudio">
+		<source src="X1.m4a" type="audio/mpeg">
+		<source src="X2.m4a" type="audio/mpeg">
+		<source src="X3.m4a" type="audio/mpeg">
+		<source src="X4.m4a" type="audio/mpeg">
+		<source src="X5.m4a" type="audio/mpeg">
+		<source src="X6.m4a" type="audio/mpeg">
+		<source src="X7.m4a" type="audio/mpeg">
+		<source src="X8.m4a" type="audio/mpeg">
+		<source src="X9.m4a" type="audio/mpeg">
+		<source src="O1.m4a" type="audio/mpeg">
+		<source src="O2.m4a" type="audio/mpeg">
+		<source src="O3.m4a" type="audio/mpeg">
+		<source src="O4.m4a" type="audio/mpeg">
+		<source src="O5.m4a" type="audio/mpeg">
+		<source src="O6.m4a" type="audio/mpeg">
+		<source src="O7.m4a" type="audio/mpeg">
+		<source src="O8.m4a" type="audio/mpeg">
+		<source src="O9.m4a" type="audio/mpeg">
+	    <source src="XWins.m4a" type="audio/mpeg">
+	    <source src="OWins.m4a" type="audio/mpeg">
+	    <source src="Draw.m4a" type="audio/mpeg">
+	</audio>
+	-->
+	
+	<!-- Sound files have been added for each respective square and for each respective player. The system gives a verbal sign as to which player moved on which square and which player has won or if the game ends in a draw. The restart button even has a sound cue to remind the user(s) that the game has restarted.-->
+	
+    <section>
+        <h1 class="game--title">Tic Tac Toe</h1>
+        <div class="game--container">
+            <div data-cell-index="0" class="cell"></div>
+            <div data-cell-index="1" class="cell"></div>
+            <div data-cell-index="2" class="cell"></div>
+            <div data-cell-index="3" class="cell"></div>
+            <div data-cell-index="4" class="cell"></div>
+            <div data-cell-index="5" class="cell"></div>
+            <div data-cell-index="6" class="cell"></div>
+            <div data-cell-index="7" class="cell"></div>
+            <div data-cell-index="8" class="cell"></div>
+        </div>
+        <h2 class="game--status"></h2>
+        <button class="game--restart" value="PLAY 1"  onclick="play('audio1')">Restart Game</button>
+		<br>
+<audio id="audio1" src="Reset.m4a" ></audio>
+<br>
+		<a href= "SeniorDesign.html">Back To Home</a>
+		<br>
+		<!-- These blocks are set at the bottom of the page to guide the user up when they click on them to remind the user that they are off the grid and must maneuver the mouse cursor up more. Unfortunately, this could not be implemented on each side of the Tic Tac Toe grid as they would cause each square to be off -->
+		
+		<audio id="audio2" src="OffGrid.m4a"></audio><input type="block" value="" onclick="play('audio2')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio3" src="GoDown.m4a"></audio><input type="block" value="" onclick="play('audio3')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')"><audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')"></audio><audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio4" src="GoRight.m4a"></audio><input type="block" value="" onclick="play('audio4')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio5" src="GoLeft.m4a"></audio><input type="block" value="" onclick="play('audio5')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+<audio id="audio6" src="GoUp.m4a"></audio><input type="block" value="" onclick="play('audio6')">
+    </section>
+
+<script src="scripta.js"></script>
+</body>
+</html>

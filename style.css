@@ -1,0 +1,59 @@
+body {
+    font-family: "Arial", sans-serif;
+    background-color: white;
+}
+section {
+    text-align: center;
+    position: relative;
+}
+.game--container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    width: 306px;
+    margin: 50px auto;
+    position: fixed;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .5);
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%);
+}
+.cell {
+    font-family: "Permanent Marker", cursive;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 0 1px #333333;
+    border: 1px solid #333333;
+    cursor: pointer;
+line-height: 100px;
+    font-size: 60px;
+    background-color: azure;
+}
+p.ex1 {
+	margin-left: 2em;
+}
+
+input {
+    color: transparent;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.active {
+  background : azure;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+

@@ -1,0 +1,35 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	font-family: times new roman;
+}
+ul
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+ul li
+{
+	list-style: none;
+}
+ul li a
+}
+	position: relative;
+	display: block;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #000000;
+	font-weight: bold;
+}
+ul li.active a
+{
+	background: #000000;
+	color: #fff;
+}

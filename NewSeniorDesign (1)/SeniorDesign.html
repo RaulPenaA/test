@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<script src="angular.js"></script>
+<script src="angular-route.min.js"></script>
+<title>Senior Design</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+body {
+  font-family: Franklin Gothic;
+  margin: 0;
+}
+
+.topnav {
+   float: center;
+   color: #e84037
+   text-align: center;
+   padding: 25px 20px;
+   text-decoration: none;
+   font-size: 20px;
+}
+
+.topnav a.active {
+  background-color: #e84037;
+  color: white;
+}
+
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #1abc9c;
+  color: blue;
+  font-size: 40px;
+}
+
+.content {padding:30px;}
+
+.topnav .search-container {
+  float: right;
+  border: black;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background : #1a78bc;
+	color: black;
+	text-align: center;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Header class includes the picture used for the header that appears on all views -->
+
+<div class="header" ng-init="myVar = 'ear.jpg'" width="50px" height="50px">
+<img ng-src="{{myVar}}">
+  <h1>Sound Aides</h1>
+  <p>The Solution to hearing capable gaming.</p>
+</div>
+
+<!-- Navigation bar for every other page plus the search bar -->
+
+<div class="topnav">
+	<a href="#main">Home</a>
+	<a href="#direct">Directory</a>
+	<a href="#tic">Play Game</a>
+	<a href="#about">About</a>
+	<div class="search-container">
+		<form action="/SeniorDesign.html">
+			<input type="text" placeholder="Search" name="search">
+			<button type="submit">Submit</button>
+		</form>
+   </div>
+</div>
+
+<div ng-app="myApp">
+
+<div ng-view></div>
+
+<script>
+//Each page is it's own html file.
+angular.module('myApp', ['ngRoute'])
+	.config(['$routeProvider', function($routeProvider) {
+		$routeProvider
+			.when('/main',{
+				templateUrl: 'media.html'
+			})
+			.when('/direct',{
+				templateUrl: 'directory.html'
+			})
+			.when('/tic',{
+				templateUrl: 'play.html'
+			})
+			.when('/about',{
+				templateUrl: 'community.html'
+			})
+			.otherwise({
+				directTo: '/media.html'
+			});
+}]);
+</script>
+
+</div>
+<!-- The footer reminds the user that this is the end of the page -->
+
+<div class="footer">
+	<p>2020</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="angular.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="style.css"></script>
+<script src="style2.css"></script>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+<!-- dddddddddddddd -->
+body {
+  font-family: Franklin Gothic;
+  margin: 0;
+}
+
+.header {
+  padding: 2px;
+  text-align: center;
+  background: #1abc9c;
+  color: gold;
+  font-size: 30px;
+}
+<!-- ddddddddddddd -->
+
+.content {padding:50px;}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+p.ex1 {
+  margin-left: 200px;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background : #1abc9c;
+	color: gold;
+	text-align: center;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #778899;
+}
+
+.topnav li {
+  float: Left;
+  display: block;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+<!--     -->
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+<!--    -->
+
+.topnav a:hover {
+  border-bottom: 2px solid white;
+}
+
+
+.topnav a {
+  color: white;
+  text-decoration: none;
+}
+
+.topnav a.active {
+  background-color: #778899;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+}
+
+.active {
+color: green;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Titles of the page -->
+
+<div class="header" id="myHeader">
+  <h1>Sound Aides</h1>
+  <p>The Solution to hearing capable gaming.</p>
+</div>
+
+
+<!-- main directory Home brings the user back to the main page. Directory is where the user will download the Sound Aides files for their respective game. Play game is where the user can play "Tic Tac Toe" to test the audio files. And About gives the user outside resources relating to Sound Aides.-->
+
+<div class="topnav" id="myTopnav">
+  <li><div ng-init="myVar = 'earlogo.jpg'" alt="BigEar" width="1px" height="1px">
+  <li><img ng-src="{{myVar}}"></li>
+  <li><a id="home" href="#main" onclick="active()" >Home</a></li>
+  <li><a id="directory" href="#direct" onclick="active()">Directory</a></li>
+  <li><a id="game" href="#tic" onclick="active()">Play Game</a></li>
+  <li><a id="about" href="#about" onclick="active()">About</li>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+
+<div ng-app="myApp">
+
+<div ng-view></div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+angular.module('myApp', ['ngRoute'])
+	.config(['$routeProvider', function($routeProvider) {
+		$routeProvider
+			.when('/main',{
+				templateUrl: 'media.html'
+			})
+			.when('/direct',{
+				templateUrl: 'directory.html'
+			})
+			.when('/tic',{
+				templateUrl: 'play.html'
+			})
+			.when('/about',{
+				templateUrl: 'community.html'
+			})
+			.otherwise({
+				directTo: '/media.html'
+			});
+}]);
+</script>
+
+</div>
+
+
+<div class="footer">
+	<p>2020</p>
+</div>
+
+</body>
+</html>
